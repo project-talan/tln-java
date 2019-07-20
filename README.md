@@ -7,40 +7,40 @@
 
 ### Attach to the existing project
 * Add skeleton as subtree
-```
-git remote add tln-java https://github.com/project-talan/tln-java.git
-git subtree add --prefix services/api tln-java master --squash
-```
+  ```
+  git remote add tln-java https://github.com/project-talan/tln-java.git
+  git subtree add --prefix services/api tln-java master --squash
+  ```
 * Update to get latest version
-```
-git subtree pull --prefix services/api tln-java master --squash
-```
+  ```
+  git subtree pull --prefix services/api tln-java master --squash
+  ```
 
 ### or Fork/clone repository
 To develop standalone project, just clone repository or create fork using your account
 
 ### Refresh configuration
 * execute next command from the project's home using command line
-```
-tln prereq
-```
+  ```
+  tln prereq
+  ```
 * Update environment variables inside **.env** file
-```
-COMPONENT_GROUP_ID=io.company.project.services
-COMPONENT_ARTIFACT_ID=api
-COMPONENT_ID=io.company.project.services.api
-COMPONENT_VERSION=19.8.0-SNAPSHOT
-COMPONENT_PARAM_HOST=localhost
-COMPONENT_PARAM_LSTN=0.0.0.0
-COMPONENT_PARAM_PORT=80
-COMPONENT_PARAM_PORTS=443
-COMPONENT_PARAM_SSL_CERTS=
-COMPONENT_PARAM_CORS_WHITELIST=
-```
+  ```
+  COMPONENT_GROUP_ID=io.company.project.services
+  COMPONENT_ARTIFACT_ID=api
+  COMPONENT_ID=io.company.project.services.api
+  COMPONENT_VERSION=19.8.0-SNAPSHOT
+  COMPONENT_PARAM_HOST=localhost
+  COMPONENT_PARAM_LSTN=0.0.0.0
+  COMPONENT_PARAM_PORT=80
+  COMPONENT_PARAM_PORTS=443
+  COMPONENT_PARAM_SSL_CERTS=
+  COMPONENT_PARAM_CORS_WHITELIST=
+  ```
 ### Generate project skeleton using maven
-```
-tln generate-jersey-grizzly2
-```
+  ```
+  tln generate-jersey-grizzly2
+  ```
 ### Add missing dependencies
 ```
 <dependency>
