@@ -119,26 +119,31 @@ To develop standalone project, just clone repository or create fork using your a
   import java.util.concurrent.CountDownLatch;
   import org.apache.log4j.Logger;
 
-  public static void main(String[] args) throws IOException {
-    logger.info("Initiliazing Grizzly server using " + BASE_URI);
-    CountDownLatch exitEvent = new CountDownLatch(1);
-    HttpServer server = createServer();
-    // register shutdown hook
-    Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-      logger.info("Stopping server ...");
-      server.stop();
-      exitEvent.countDown();
-    }, "shutdownHook"));
+  public class Main {
+  
+    private static final Logger logger = Logger.getLogger(Main.class);
+    
+    public static void main(String[] args) throws IOException {
+      logger.info("Initiliazing Grizzly server using " + BASE_URI);
+      CountDownLatch exitEvent = new CountDownLatch(1);
+      HttpServer server = createServer();
+      // register shutdown hook
+      Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+        logger.info("Stopping server ...");
+        server.stop();
+        exitEvent.countDown();
+      }, "shutdownHook"));
 
-    try {
-      server.start();
-      logger.info(String.format("Jersey app started with WADL available at %sapplication.wadl", BASE_URI));
-      logger.info("Press CTRL^C to exit ...");
-      exitEvent.await();
-      logger.info("Exiting service ...");
-    } catch (InterruptedException e) {
-      logger.error("There was an error while starting Grizzly HTTP server.", e);
-      Thread.currentThread().interrupt();
+      try {
+        server.start();
+        logger.info(String.format("Jersey app started with WADL available at %sapplication.wadl", BASE_URI));
+        logger.info("Press CTRL^C to exit ...");
+        exitEvent.await();
+        logger.info("Exiting service ...");
+      } catch (InterruptedException e) {
+        logger.error("There was an error while starting Grizzly HTTP server.", e);
+        Thread.currentThread().interrupt();
+      }
     }
   }
   ```
