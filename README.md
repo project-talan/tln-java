@@ -64,6 +64,11 @@ To develop standalone project, just clone repository or create fork using your a
     <version>1.2.0</version>
   </dependency>
 ```
+
+### Set artifact final name
+  ```
+  <finalName>${project.groupId}.${project.artifactId}-${project.version}</finalName>
+  ```
 ### Update compilation plugin
   ```
   <plugin>
