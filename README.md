@@ -114,8 +114,11 @@ To develop standalone project, just clone repository or create fork using your a
     </configuration>
   </plugin>
   ```
-### Update Main procedure to aligned with docker
+### Update Main.java to aligned with docker
   ```
+  import java.util.concurrent.CountDownLatch;
+  import org.apache.log4j.Logger;
+
   public static void main(String[] args) throws IOException {
     logger.info("Initiliazing Grizzly server using " + BASE_URI);
     CountDownLatch exitEvent = new CountDownLatch(1);
