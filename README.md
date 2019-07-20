@@ -20,7 +20,10 @@ git subtree pull --prefix services/api tln-java master --squash
 To develop standalone project, just clone repository or create fork using your account
 
 ### Refresh configuration
-* execute **tln prereq** from the project's home using command line
+* execute next command from the project's home using command line
+```
+tln prereq
+```
 * Update environment variables inside **.env** file
 ```
 COMPONENT_GROUP_ID=io.company.project.services
