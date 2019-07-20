@@ -114,6 +114,31 @@ To develop standalone project, just clone repository or create fork using your a
     </configuration>
   </plugin>
   ```
+### Update Main procedure to aligned with docker
+  ```
+  public static void main(String[] args) throws IOException {
+    logger.info("Initiliazing Grizzly server using " + BASE_URI);
+    CountDownLatch exitEvent = new CountDownLatch(1);
+    HttpServer server = createServer();
+    // register shutdown hook
+    Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+      logger.info("Stopping server ...");
+      server.stop();
+      exitEvent.countDown();
+    }, "shutdownHook"));
+
+    try {
+      server.start();
+      logger.info(String.format("Jersey app started with WADL available at %sapplication.wadl", BASE_URI));
+      logger.info("Press CTRL^C to exit ...");
+      exitEvent.await();
+      logger.info("Exiting service ...");
+    } catch (InterruptedException e) {
+      logger.error("There was an error while starting Grizzly HTTP server.", e);
+      Thread.currentThread().interrupt();
+    }
+  }
+  ```
 ### Migration tutorials
 * http://www.javainthebox.com/2018/07/case-study-of-migration-to-java-se-11.html
 * https://winterbe.com/posts/2018/08/29/migrate-maven-projects-to-java-11-jigsaw/
