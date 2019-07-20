@@ -63,7 +63,12 @@ To develop standalone project, just clone repository or create fork using your a
     <artifactId>javax.activation-api</artifactId>
     <version>1.2.0</version>
   </dependency>
-```
+  <dependency>
+    <groupId>log4j</groupId>
+    <artifactId>log4j</artifactId>
+    <version>1.2.17</version>
+  </dependency>
+  ```
 
 ### Set artifact final name
   ```
