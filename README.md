@@ -42,66 +42,67 @@ To develop standalone project, just clone repository or create fork using your a
   tln generate-jersey-grizzly2
   ```
 ### Add missing dependencies
-```
-<dependency>
-  <groupId>javax.xml.bind</groupId>
-  <artifactId>jaxb-api</artifactId>
-  <version>2.3.0</version>
-</dependency>
-<dependency>
-  <groupId>com.sun.xml.bind</groupId>
-  <artifactId>jaxb-impl</artifactId>
-  <version>2.3.0.1</version>
-</dependency>
-<dependency>
-  <groupId>com.sun.xml.bind</groupId>
-  <artifactId>jaxb-core</artifactId>
-  <version>2.3.0.1</version>
-</dependency>
-<dependency>
-  <groupId>javax.activation</groupId>
-  <artifactId>javax.activation-api</artifactId>
-  <version>1.2.0</version>
-</dependency>
+  ```
+  <dependency>
+    <groupId>javax.xml.bind</groupId>
+    <artifactId>jaxb-api</artifactId>
+    <version>2.3.0</version>
+  </dependency>
+  <dependency>
+    <groupId>com.sun.xml.bind</groupId>
+    <artifactId>jaxb-impl</artifactId>
+    <version>2.3.0.1</version>
+  </dependency>
+  <dependency>
+    <groupId>com.sun.xml.bind</groupId>
+    <artifactId>jaxb-core</artifactId>
+    <version>2.3.0.1</version>
+  </dependency>
+  <dependency>
+    <groupId>javax.activation</groupId>
+    <artifactId>javax.activation-api</artifactId>
+    <version>1.2.0</version>
+  </dependency>
 ```
 ### Update compilation plugin
-```
-<plugin>
-  <groupId>org.apache.maven.plugins</groupId>
-  <artifactId>maven-compiler-plugin</artifactId>
-  <version>3.8.1</version>
-  <inherited>true</inherited>
-  <configuration>
-    <source>11</source>
-    <target>11</target>
-  </configuration>
-</plugin>
-```
+  ```
+  <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-compiler-plugin</artifactId>
+    <version>3.8.1</version>
+    <inherited>true</inherited>
+    <configuration>
+      <source>11</source>
+      <target>11</target>
+    </configuration>
+  </plugin>
+  ```
 ### Add assemply plugin
-```
-<plugin>
-  <artifactId>maven-assembly-plugin</artifactId>
-  <version>3.1.1</version>
-  <executions>
-    <execution>
-      <phase>package</phase>
-      <goals>
-        <goal>single</goal>
-      </goals>
-    </execution>
-  </executions>
-  <configuration>
-    <archive>
-      <manifest>
-        <addClasspath>true</addClasspath>
-        <mainClass>${project.groupId}.${project.artifactId}.Main</mainClass>
-      </manifest>
-    </archive>
-    <descriptorRefs>
-      <descriptorRef>jar-with-dependencies</descriptorRef>
-    </descriptorRefs>
-  </configuration>
-</plugin>
+  ```
+  <plugin>
+    <artifactId>maven-assembly-plugin</artifactId>
+    <version>3.1.1</version>
+    <executions>
+      <execution>
+        <phase>package</phase>
+        <goals>
+          <goal>single</goal>
+        </goals>
+      </execution>
+    </executions>
+    <configuration>
+      <archive>
+        <manifest>
+          <addClasspath>true</addClasspath>
+          <mainClass>${project.groupId}.${project.artifactId}.Main</mainClass>
+        </manifest>
+      </archive>
+      <descriptorRefs>
+        <descriptorRef>jar-with-dependencies</descriptorRef>
+      </descriptorRefs>
+    </configuration>
+  </plugin>
+  ```
 ### Migration tutorials
 * http://www.javainthebox.com/2018/07/case-study-of-migration-to-java-se-11.html
 * https://winterbe.com/posts/2018/08/29/migrate-maven-projects-to-java-11-jigsaw/
@@ -109,10 +110,10 @@ To develop standalone project, just clone repository or create fork using your a
 
 ### HTTP/HTTPS
 * During deployment procedure, create ssl folder under project's root with two sertificates. Use your project id as files' names
-```
-  io.company.project.services.api.key
-  io.company.project.services.api.crt
-```
+  ```
+    io.company.project.services.api.key
+    io.company.project.services.api.crt
+  ```
 * otherwise, **http** access will be configured
 
 
