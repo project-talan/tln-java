@@ -77,6 +77,12 @@ To develop standalone project, just clone repository or create fork using your a
     </configuration>
   </plugin>
   ```
+### Update version for compiler plugin
+  ```
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>exec-maven-plugin</artifactId>
+    <version>1.6.0</version>
+  ```  
 ### Add assemply plugin
   ```
   <plugin>
