@@ -123,10 +123,8 @@ To develop standalone project, just clone repository or create fork using your a
   
     private static final Logger logger = Logger.getLogger(Main.class);
     
-    /**
-     * Starts Grizzly HTTP server exposing JAX-RS resources defined in this application.
-     * @return Grizzly HTTP server.
-     */
+    public static final String BASE_URI = "http://0.0.0.0:8080/myapp/";
+    
     public static HttpServer createServer() {
         // create a resource config that scans for JAX-RS resources and providers
         // in io.company.project.services.api package
