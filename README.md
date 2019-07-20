@@ -3,7 +3,7 @@
 ## Getting started
 
 ### Install tln-cli
-* link
+* [talan cli](https://github.com/project-talan/tln-cli)
 
 ### Attach to the existing project
 * Add skeleton as subtree
