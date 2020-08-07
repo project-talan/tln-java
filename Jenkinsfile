@@ -36,11 +36,13 @@ node {
 
     //
     // Get information from project's config
+    /*/
     (groupId, artifactId, uid, version) = helper.getInfoFromPackageJson()
     env.TLN_COMPONENT_GROUP_ID = groupId
     env.TLN_COMPONENT_ARTIFACT_ID = artifactId
     env.TLN_COMPONENT_UID = uid
     env.TLN_COMPONENT_VERSION = version
+    /*/
   }
 
   try {
